@@ -1,0 +1,10 @@
+# eclipse config files
+.classpath
+.project
+
+# generated project files
+bin/
+
+# maven files
+target/
+reports/
