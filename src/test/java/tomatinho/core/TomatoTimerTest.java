@@ -22,7 +22,7 @@ public class TomatoTimerTest {
         assertThat(result[0], is(equalTo(null)));
         Thread.sleep(1000);
         assertThat(result[0], is(equalTo(null)));
-        Thread.sleep(1000);
+        Thread.sleep(1500);
         assertThat(result[0], is("Ring!!!"));
     }
 
