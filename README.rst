@@ -3,4 +3,9 @@ tomatinho
 
 Desktop-based, multiplatform Pomodoro implementation.
 
-Coming soon!
+How to test
+-----------
+
+Just run::
+
+    $ buildr test
