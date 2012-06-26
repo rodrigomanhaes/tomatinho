@@ -1,4 +1,4 @@
-package tomatinho;
+package tomatinho.core;
 
 public interface RingListener {
     void ring();
