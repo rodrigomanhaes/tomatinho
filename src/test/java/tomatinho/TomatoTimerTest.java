@@ -4,7 +4,7 @@ import org.junit.Test;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
-public class TomatoTest {
+public class TomatoTimerTest {
 
     @Test
     public void testCountsTime() throws InterruptedException {
@@ -15,7 +15,7 @@ public class TomatoTest {
                 result[0] = "Ring!!!";
             }
         };
-        Tomato tomato = new Tomato(listener);
+        TomatoTimer tomato = new TomatoTimer(listener);
         tomato.start(3);
         Thread.sleep(1000);
         assertThat(result[0], is(equalTo(null)));
