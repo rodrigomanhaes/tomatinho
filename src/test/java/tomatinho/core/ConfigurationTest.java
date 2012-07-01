@@ -15,9 +15,9 @@ public class ConfigurationTest {
             .shortBreak(5)
             .longBreak(20)
             .build();
-        assertThat(config.workTime(), is(25));
-        assertThat(config.shortBreak(), is(5));
-        assertThat(config.longBreak(), is(20));
+        assertThat(config.workTime(), is(25.));
+        assertThat(config.shortBreak(), is(5.));
+        assertThat(config.longBreak(), is(20.));
     }
     
     @Test(expected=IllegalArgumentException.class)

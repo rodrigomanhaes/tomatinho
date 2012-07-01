@@ -1,7 +1,7 @@
 package tomatinho.core;
 
 public class Configuration {
-    private Integer workTime, shortBreak, longBreak;
+    private Double workTime, shortBreak, longBreak;
     
     private Configuration() {
     }
@@ -17,17 +17,17 @@ public class Configuration {
             this.config = config;
         }
         
-        public Builder workTime(int workTime) {
+        public Builder workTime(double workTime) {
             config.workTime = workTime;
             return this;
         }
         
-        public Builder shortBreak(int shortBreak) {
+        public Builder shortBreak(double shortBreak) {
             config.shortBreak = shortBreak;
             return this;
         }
         
-        public Builder longBreak(int longBreak) {
+        public Builder longBreak(double longBreak) {
             config.longBreak = longBreak;
             return this;
         }
@@ -37,15 +37,15 @@ public class Configuration {
         }
     }
     
-    public Integer workTime() {
+    public Double workTime() {
         return workTime;
     }
     
-    public Integer longBreak() {
+    public Double longBreak() {
         return longBreak;
     }
     
-    public Integer shortBreak() {
+    public Double shortBreak() {
         return shortBreak;
     }
     

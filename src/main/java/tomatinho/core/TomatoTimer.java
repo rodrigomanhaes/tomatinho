@@ -13,7 +13,7 @@ public class TomatoTimer {
         this.listeners = Arrays.asList(listeners);
     }
 
-    public void start(int seconds) {
+    public void start(double seconds) {
         Timer timer = new Timer();
         timer.schedule(
             new TimerTask() {
@@ -23,7 +23,7 @@ public class TomatoTimer {
                         listener.ring();
                 }
             },
-            seconds * 1000
+            Math.round(seconds * 1000)
         );
     }
 }

@@ -6,17 +6,25 @@ import java.util.Collections;
 import java.util.List;
 
 public class ToDoToday {
-    private List<String> tasks;
+    private List<Task> tasks;
 
-    public ToDoToday(String... tasks) {
-        this.tasks = new ArrayList<String>(Arrays.asList(tasks));
+    public ToDoToday(Task... tasks) {
+        this.tasks = new ArrayList<Task>(Arrays.asList(tasks));
     }
     
-    public List<String> tasks() {
+    public List<Task> tasks() {
         return Collections.unmodifiableList(tasks);
     }
     
-    public void addItem(String item) {
+    public void addItem(Task item) {
         tasks.add(item);
+    }
+    
+    public Task currentOrNext() {
+        for (Task task: tasks) {
+            if (!task.finished())
+                return task;
+        }
+        return null;
     }
 }
