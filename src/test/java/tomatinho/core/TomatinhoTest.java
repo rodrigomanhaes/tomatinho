@@ -28,7 +28,7 @@ public class TomatinhoTest {
             .build();
         tomatinho = new Tomatinho(todo, configuration);
     }
-    
+
     @Test
     public void controlsApplicationFlow() throws InterruptedException {
         assertThat(tomatinho.currentTask(), is(equalTo(null)));
@@ -48,12 +48,12 @@ public class TomatinhoTest {
         tomatinho.start();
         assertThat(tomatinho.status(), is(WORKING));
         assertThat(tomatinho.currentTask(), is(task1));
-        
+
         Thread.sleep(Math.round(1000 * 0.03));
         assertThat(tomatinho.status(), is(WAITING));
         tomatinho.start();
         assertThat(tomatinho.status(), is(LONG_BREAK));
-        
+
         task1.markAsFinished();
         Thread.sleep(Math.round(1000 * 0.03));
         assertThat(tomatinho.status(), is(WAITING));

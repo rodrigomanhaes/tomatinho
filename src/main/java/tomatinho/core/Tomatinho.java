@@ -1,21 +1,18 @@
 package tomatinho.core;
 
-import static tomatinho.core.Status.*;
-
 public class Tomatinho implements RingListener {
-
-    private ToDoToday toDoToday;
+    private final ToDoToday toDoToday;
     private Task currentTask;
     private TomatoTimer timer;
-    private Configuration configuration;
-    private Status.FlowController flow;
+    private final Configuration configuration;
+    private final Status.FlowController flow;
 
     public Tomatinho(ToDoToday todo, Configuration configuration) {
         this.toDoToday = todo;
         this.configuration = configuration;
         this.flow = Status.newFlowController(configuration);
     }
-    
+
     public void start() {
         currentTask = toDoToday.currentOrNext();
         timer = new TomatoTimer(this);
