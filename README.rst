@@ -2,6 +2,7 @@ tomatinho
 =========
 
 .. image:: http://travis-ci.org/rodrigomanhaes/tomatinho.png
+   :target: http://travis-ci.org/rodrigomanhaes/tomatinho
 
 Desktop-based, multiplatform Pomodoro implementation.
 
