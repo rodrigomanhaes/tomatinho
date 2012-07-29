@@ -2,8 +2,11 @@ package tomatinho.core;
 
 public class Configuration {
     private Double workTime, shortBreak, longBreak;
+    private Integer longBreakInterval;
+    private boolean continuous;
     
     private Configuration() {
+        this.continuous = false;
     }
     
     public static Builder builder() {
@@ -32,6 +35,16 @@ public class Configuration {
             return this;
         }
         
+        public Builder longBreakInterval(int longBreakInterval) {
+            config.longBreakInterval = longBreakInterval;
+            return this;
+        }
+        
+        public Builder continuous() {
+            config.continuous = true;
+            return this;
+        }
+        
         public Configuration build() {
             return config.validate();
         }
@@ -47,6 +60,14 @@ public class Configuration {
     
     public Double shortBreak() {
         return shortBreak;
+    }
+    
+    public Integer longBreakInterval() {
+        return longBreakInterval;
+    }
+    
+    public boolean continuous() {
+        return continuous;
     }
     
     private Configuration validate() {

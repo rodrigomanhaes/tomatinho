@@ -14,10 +14,14 @@ public class ConfigurationTest {
             .workTime(25)
             .shortBreak(5)
             .longBreak(20)
+            .longBreakInterval(2)
+            .continuous()
             .build();
         assertThat(config.workTime(), is(25.));
         assertThat(config.shortBreak(), is(5.));
         assertThat(config.longBreak(), is(20.));
+        assertThat(config.longBreakInterval(), is(2));
+        assertThat(config.continuous(), is(true));
     }
     
     @Test(expected=IllegalArgumentException.class)
@@ -33,5 +37,17 @@ public class ConfigurationTest {
     @Test(expected=IllegalArgumentException.class)
     public void requiresLongBreak() {
         Configuration.builder().shortBreak(5).workTime(25).build();
+    }
+    
+    @Test
+    public void isNotContinuousByDefault() {
+        assertThat(Configuration.builder()
+            .workTime(25)
+            .shortBreak(5)
+            .longBreak(20)
+            .longBreakInterval(2)
+            .build()
+            .continuous(),
+            is(false));
     }
 }
