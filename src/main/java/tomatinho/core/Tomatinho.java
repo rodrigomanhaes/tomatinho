@@ -5,12 +5,12 @@ public class Tomatinho implements RingListener {
     private Task currentTask;
     private TomatoTimer timer;
     private final Configuration configuration;
-    private final Status.FlowController flow;
+    private final FlowController flow;
 
     public Tomatinho(ToDoToday todo, Configuration configuration) {
         this.toDoToday = todo;
         this.configuration = configuration;
-        this.flow = Status.newFlowController(configuration);
+        this.flow = new FlowController(configuration);
     }
 
     public void start() {
