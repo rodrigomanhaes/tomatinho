@@ -13,7 +13,7 @@ public class Task {
         return finished;
     }
 
-    public void markAsFinished() {
+    public void finish() {
         finished = true;
     }
     

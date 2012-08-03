@@ -54,7 +54,7 @@ public class TomatinhoTest {
         tomatinho.start();
         assertThat(tomatinho.status(), is(LONG_BREAK));
 
-        task1.markAsFinished();
+        task1.finish();
         Thread.sleep(Math.round(1000 * 0.03));
         assertThat(tomatinho.status(), is(WAITING));
         tomatinho.start();
