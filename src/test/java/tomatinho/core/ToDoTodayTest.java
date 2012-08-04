@@ -1,17 +1,22 @@
 package tomatinho.core;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.hasItems;
+import static org.hamcrest.Matchers.is;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+import java.util.Date;
+
+import org.joda.time.DateTime;
 import org.junit.Before;
-import static org.mockito.Mockito.*;
 import org.junit.Test;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
-
 public class ToDoTodayTest {
-    
+
     private Task preAddedTask1, preAddedTask2;
     private ToDoToday todo;
-    
+
     @Before
     public void setup() {
         preAddedTask1 = new Task("Write article on 'How to Learn Music'");
@@ -23,15 +28,15 @@ public class ToDoTodayTest {
     public void testRequiresAnInitialToDoList() {
         assertThat(todo.tasks(), hasItems(preAddedTask1, preAddedTask2));
     }
-    
+
     @Test
     public void acceptsAdditionOfItems() {
         Task anotherTask = new Task("Another thing to do");
         todo.addItem(anotherTask);
-        assertThat(todo.tasks(), 
-            hasItems(preAddedTask1, preAddedTask2, anotherTask));
+        assertThat(todo.tasks(),
+                hasItems(preAddedTask1, preAddedTask2, anotherTask));
     }
-    
+
     @Test
     public void retrievesCurrentTaskOrNext() {
         Task task1 = mock(Task.class);
@@ -42,5 +47,17 @@ public class ToDoTodayTest {
         assertThat(todo.currentOrNext(), is(task1));
         assertThat(todo.currentOrNext(), is(task1));
         assertThat(todo.currentOrNext(), is(task2));
+    }
+
+    @Test
+    public void hasOwnerLocalAndDate() {
+        Date thisDate = new DateTime().withDate(2012, 7, 10).toDate();
+        todo
+            .owner("Bruce Wayne")
+            .local("Gotham City")
+            .date(thisDate);
+        assertThat(todo.owner(), is("Bruce Wayne"));
+        assertThat(todo.local(), is("Gotham City"));
+        assertThat(todo.date(), is(thisDate));
     }
 }
