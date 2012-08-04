@@ -1,16 +1,12 @@
 package tomatinho.core;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.hasItems;
-import static org.hamcrest.Matchers.is;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.hamcrest.Matchers.*;
+import static org.mockito.Mockito.*;
 
 import java.util.Date;
 
-import org.joda.time.DateTime;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 public class ToDoTodayTest {
 
@@ -51,7 +47,7 @@ public class ToDoTodayTest {
 
     @Test
     public void hasOwnerLocalAndDate() {
-        Date thisDate = new DateTime().withDate(2012, 7, 10).toDate();
+        Date thisDate = new Date(System.currentTimeMillis());
         todo
             .owner("Bruce Wayne")
             .local("Gotham City")

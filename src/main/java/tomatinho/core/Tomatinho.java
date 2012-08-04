@@ -30,6 +30,9 @@ public class Tomatinho implements RingListener {
 
     @Override
     public void ring() {
-        flow.next();
+        if (configuration.continuous())
+            start();
+        else
+            flow.next();
     }
 }

@@ -1,13 +1,8 @@
 package tomatinho.core;
 
-import static tomatinho.core.Status.LONG_BREAK;
-import static tomatinho.core.Status.SHORT_BREAK;
-import static tomatinho.core.Status.WAITING;
-import static tomatinho.core.Status.WORKING;
+import static tomatinho.core.Status.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class FlowController {
     protected Status current;

@@ -1,8 +1,7 @@
 package tomatinho.core;
 
-import static org.junit.Assert.*;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
+import static org.hamcrest.Matchers.is;
 
 import org.junit.Test;
 
@@ -23,22 +22,22 @@ public class ConfigurationTest {
         assertThat(config.longBreakInterval(), is(2));
         assertThat(config.continuous(), is(true));
     }
-    
+
     @Test(expected=IllegalArgumentException.class)
     public void requiresWorkTime() {
         Configuration.builder().shortBreak(5).longBreak(20).build();
     }
-    
+
     @Test(expected=IllegalArgumentException.class)
     public void requiresShortBreak() {
         Configuration.builder().workTime(25).longBreak(20).build();
     }
-    
+
     @Test(expected=IllegalArgumentException.class)
     public void requiresLongBreak() {
         Configuration.builder().shortBreak(5).workTime(25).build();
     }
-    
+
     @Test
     public void isNotContinuousByDefault() {
         assertThat(Configuration.builder()
