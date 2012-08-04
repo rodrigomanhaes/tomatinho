@@ -1,6 +1,6 @@
 package tomatinho.core;
 
-import java.util.Date;
+import java.util.*;
 
 public class Task {
     private final String description;
@@ -8,10 +8,35 @@ public class Task {
     private Date startTime;
     private String notes;
     private String type;
+    private final List<Tomato> tomatoes;
 
     public Task(String description) {
         this.description = description;
         this.finished = false;
+        this.tomatoes = new ArrayList<Tomato>();
+    }
+
+    public Tomato currentTomato() {
+        for (Tomato tomato: tomatoes)
+            if (!tomato.finished())
+                return tomato;
+        return null;
+    }
+
+    public void startTomato() {
+        tomatoes.add(new Tomato());
+    }
+
+    public void finishTomato() {
+        currentTomato().finish();
+    }
+
+    public int tomatoCount() {
+        int count = 0;
+        for (Tomato tomato: tomatoes)
+            if (tomato.finished())
+                count++;
+        return count;
     }
 
     public boolean finished() {

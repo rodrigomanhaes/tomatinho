@@ -1,7 +1,7 @@
 package tomatinho.core;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 
 import java.util.Date;
 
@@ -39,5 +39,18 @@ public class TaskTest {
         assertThat(task.startTime(), is(thisDate));
         assertThat(task.notes(), is("something relevant about task"));
         assertThat(task.type(), is("Studying"));
+    }
+
+    @Test
+    public void startsAndEndsTomato() {
+        Task task = new Task("dummy");
+        assertThat(task.currentTomato(), is(equalTo(null)));
+        assertThat(task.tomatoCount(), is(0));
+        task.startTomato();
+        assertThat(task.tomatoCount(), is(0));
+        assertThat(task.currentTomato(), is(instanceOf(Tomato.class)));
+        task.finishTomato();
+        assertThat(task.currentTomato(), is(equalTo(null)));
+        assertThat(task.tomatoCount(), is(1));
     }
 }
