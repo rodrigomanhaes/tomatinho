@@ -22,11 +22,11 @@ public class ToDoToday {
         return unplannedTasks;
     }
 
-    public void addItem(Task item) {
+    public void addTask(Task item) {
         tasks.add(item);
     }
 
-    public void addUnplannedItem(Task task) {
+    public void addUnplannedTask(Task task) {
         unplannedTasks.add(task);
     }
 

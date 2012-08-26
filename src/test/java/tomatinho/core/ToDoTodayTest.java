@@ -28,7 +28,7 @@ public class ToDoTodayTest {
     @Test
     public void acceptsAdditionOfItems() {
         Task anotherTask = new Task("Another thing to do");
-        todo.addItem(anotherTask);
+        todo.addTask(anotherTask);
         assertThat(todo.tasks(),
                 hasItems(preAddedTask1, preAddedTask2, anotherTask));
     }
@@ -36,7 +36,7 @@ public class ToDoTodayTest {
     @Test
     public void addTaskAsUnplanned() {
         Task task = new Task("An urgent thing I only remembered right now");
-        todo.addUnplannedItem(task);
+        todo.addUnplannedTask(task);
         assertThat(todo.unplannedTasks().size(), is(1));
         assertThat(todo.unplannedTasks(), hasItems(task));
     }
