@@ -18,4 +18,17 @@ public class TomatoTest {
         tomato.finish();
         assertThat(tomato.finished(), is(true));
     }
+
+    @Test
+    public void canBeInterrupted() {
+        Tomato tomato = new Tomato();
+        tomato.externalInterruption();
+        tomato.externalInterruption();
+        tomato.internalInterruption();
+        tomato.externalInterruption();
+        tomato.internalInterruption();
+        assertThat(tomato.interruptionCount(), is(5));
+        assertThat(tomato.externalInterruptionCount(), is(3));
+        assertThat(tomato.internalInterruptionCount(), is(2));
+    }
 }
