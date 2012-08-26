@@ -1,27 +1,33 @@
 package tomatinho.core;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class ToDoToday {
     private final List<Task> tasks;
+    private final List<Task> unplannedTasks;
     private String owner;
     private String local;
     private Date date;
 
     public ToDoToday(Task... tasks) {
         this.tasks = new ArrayList<Task>(Arrays.asList(tasks));
+        unplannedTasks = new ArrayList<Task>();
     }
 
     public List<Task> tasks() {
         return Collections.unmodifiableList(tasks);
     }
 
+    public List<Task> unplannedTasks() {
+        return unplannedTasks;
+    }
+
     public void addItem(Task item) {
         tasks.add(item);
+    }
+
+    public void addUnplannedItem(Task task) {
+        unplannedTasks.add(task);
     }
 
     public Task currentOrNext() {

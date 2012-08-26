@@ -34,6 +34,14 @@ public class ToDoTodayTest {
     }
 
     @Test
+    public void addTaskAsUnplanned() {
+        Task task = new Task("An urgent thing I only remembered right now");
+        todo.addUnplannedItem(task);
+        assertThat(todo.unplannedTasks().size(), is(1));
+        assertThat(todo.unplannedTasks(), hasItems(task));
+    }
+
+    @Test
     public void retrievesCurrentTaskOrNext() {
         Task task1 = mock(Task.class);
         when(task1.finished()).thenReturn(false, false, true);
